@@ -3,17 +3,13 @@ const calculateAge = () => {
   const month = parseInt(document.getElementById("month").value) - 1;
   const year = parseInt(document.getElementById("year").value);
 
-  if (isNaN(day) && isNaN(month) && isNaN(year)) {
+  if (!day || !month || !year) {
     document.getElementById("error").innerHTML =
       "Please fill in all the fields";
     return;
-  } else if (isNaN(day)) {
-    document.getElementById("error").innerHTML = "Please enter a valid day";
-  } else if (isNaN(month)) {
-    document.getElementById("error").innerHTML = "Please enter a valid month";
-  } else if (isNaN(year)) {
-    document.getElementById("error").innerHTML = "Please enter a valid year";
   }
+
+  document.getElementById("error").innerHTML = "";
 
   const birthDate = new Date(year, month, day);
   const currentDate = new Date();
